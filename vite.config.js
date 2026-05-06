@@ -5,7 +5,7 @@ import Components from '@layui/unplugin-vue-components/vite'
 import {LayuiVueResolver} from '@layui/unplugin-vue-components/resolvers'
 
 export default defineConfig({
-    base: process.env.BASE_URL || '/',
+    // base 由 skywarth/vite-github-pages-deployer 自动设置
     plugins: [
         vue(),
         AutoImport({

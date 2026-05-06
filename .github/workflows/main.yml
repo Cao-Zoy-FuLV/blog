@@ -38,11 +38,8 @@ jobs:
       - name: 安装依赖
         run: npm ci
       
-      - name: 构建项目
-        run: npm run build
-        env:
-          BASE_URL: /${{ github.event.repository.name }}/  # 设置基础路径为仓库名称
-      
       - name: 部署到 GitHub Pages
         uses: skywarth/vite-github-pages-deployer@master
         id: blog
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
