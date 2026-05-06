@@ -1,5 +1,4 @@
 # Blog
 
 GitHub Pages 部署说明：
-
-- `public/404.html` 文件用于在 GitHub Pages 上支持 SPA 路由刷新
+- 构建时会自动生成 `dist/404.html` 作为 GitHub Pages 的回退页面

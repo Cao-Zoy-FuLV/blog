@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from '@layui/unplugin-vue-components/vite'
 import {LayuiVueResolver} from '@layui/unplugin-vue-components/resolvers'
+import fs from 'fs'
+import path from 'path'
 
 export default defineConfig({
     base: './',  // 使用相对路径，适应 GitHub Pages 子路径
@@ -29,6 +31,18 @@ export default defineConfig({
                 })
             ],
         }),
+        {
+            name: 'copy-404',
+            closeBundle() {
+                const distDir = path.resolve(__dirname, 'dist')
+                const indexPath = path.join(distDir, 'index.html')
+                const page404Path = path.join(distDir, '404.html')
+                if (fs.existsSync(indexPath)) {
+                    fs.copyFileSync(indexPath, page404Path)
+                    console.log('Copied index.html to 404.html in dist/')
+                }
+            }
+        },
     ],
     server: {
         host: '0.0.0.0',  // 允许局域网访问
