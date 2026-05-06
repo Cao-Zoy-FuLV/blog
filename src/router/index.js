@@ -33,7 +33,6 @@ router.beforeEach((to, from, next) => {
 const originalReplaceState = window.history.replaceState
 
 window.history.replaceState = function (state, title, url) {
-  console.log('🚨 history.replaceState 被调用，已拦截')
   originalReplaceState.call(this, null, '', '')
 }
 

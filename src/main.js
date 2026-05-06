@@ -10,5 +10,3 @@ const app = createApp(App)
 app.use(Layui)
 app.use(router)
 app.mount('#app')
-
-console.log('应用已挂载，当前路由:', router.currentRoute.value.path)
