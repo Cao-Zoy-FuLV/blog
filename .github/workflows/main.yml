@@ -1,4 +1,4 @@
-name: Vite GitHub Pages 部署
+name:  部署
 
 on:
   # 当推送到默认分支时触发
