@@ -1,5 +1,5 @@
 // src/router/index.js
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Cv from '../components/Cv.vue'
 import Cv1 from '../components/Cv1.vue'
 
@@ -19,7 +19,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),  // 使用 Hash 模式适配 GitHub Pages
   routes
 })
 
