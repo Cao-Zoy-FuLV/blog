@@ -6,7 +6,9 @@ import Layui from '@layui/layui-vue'
 import '@layui/layui-vue/lib/index.css'
 import router from './router'
 
-createApp(App)
-    .use(Layui)
-    .use(router)
-    .mount('#app')
+const app = createApp(App)
+app.use(Layui)
+app.use(router)
+app.mount('#app')
+
+console.log('应用已挂载，当前路由:', router.currentRoute.value.path)
