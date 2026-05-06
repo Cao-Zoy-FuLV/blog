@@ -9,7 +9,7 @@ on:
 
 # 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
 permissions:
-  contents: read      # 读取仓库内容
+  contents: write     # 写入仓库内容（推送 gh-pages 分支）
   pages: write        # 写入 GitHub Pages
   id-token: write     # 用于 OIDC 认证
 
