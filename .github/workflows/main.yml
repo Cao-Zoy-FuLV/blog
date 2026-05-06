@@ -32,7 +32,7 @@ jobs:
       - name: 设置 Node.js 环境
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # Vite 8 需要 Node.js 20.19+ 或 22.12+
+          node-version: '24'  
           cache: 'npm'
       
       - name: 安装依赖
