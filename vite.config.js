@@ -5,7 +5,7 @@ import Components from '@layui/unplugin-vue-components/vite'
 import {LayuiVueResolver} from '@layui/unplugin-vue-components/resolvers'
 
 export default defineConfig({
-    base: '/blog/',  // GitHub Pages 仓库名称
+    base: './',  // 使用相对路径，适应 GitHub Pages 子路径
     plugins: [
         vue(),
         AutoImport({
