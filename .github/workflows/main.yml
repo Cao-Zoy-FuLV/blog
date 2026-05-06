@@ -41,5 +41,3 @@ jobs:
       - name: 部署到 GitHub Pages
         uses: skywarth/vite-github-pages-deployer@master
         id: blog
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
