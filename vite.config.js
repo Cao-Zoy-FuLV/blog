@@ -3,8 +3,6 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from '@layui/unplugin-vue-components/vite'
 import {LayuiVueResolver} from '@layui/unplugin-vue-components/resolvers'
-import fs from 'fs'
-import path from 'path'
 
 export default defineConfig({
     base: './',  // 使用相对路径，适应 GitHub Pages 子路径
@@ -31,40 +29,6 @@ export default defineConfig({
                 })
             ],
         }),
-        {
-            name: 'html-transform',
-            transformIndexHtml(html) {
-                // 在开发模式下，向 HTML 中注入 import map
-                // 生产构建时保留原始 HTML（无 import map），因为依赖已打包
-                if (process.env.NODE_ENV === 'development') {
-                    const importMap = `
-    <script type="importmap">
-    {
-        "imports": {
-            "vue": "https://unpkg.com/vue@3.5.32/dist/vue.esm-browser.js",
-            "vue-router": "https://unpkg.com/vue-router@4.6.4/dist/vue-router.esm-browser.js"
-        }
-    }
-    </script>`
-                    // 插入到 </head> 之前
-                    return html.replace('</head>', importMap + '\n</head>')
-                }
-                return html
-            },
-        },
-        {
-            name: 'copy-404',
-            closeBundle() {
-                const distDir = path.resolve(__dirname, 'dist')
-                const indexPath = path.join(distDir, 'index.html')
-                const page404Path = path.join(distDir, '404.html')
-                // 构建完成后，将 index.html 复制为 404.html，用于 GitHub Pages 的 SPA 回退
-                if (fs.existsSync(indexPath)) {
-                    fs.copyFileSync(indexPath, page404Path)
-                    console.log('Copied index.html to 404.html in dist/')
-                }
-            }
-        },
     ],
     server: {
         host: '0.0.0.0',  // 允许局域网访问
