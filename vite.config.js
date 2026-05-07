@@ -5,7 +5,7 @@ import Components from '@layui/unplugin-vue-components/vite'
 import {LayuiVueResolver} from '@layui/unplugin-vue-components/resolvers'
 
 export default defineConfig({
-    base: '/blog/',  // GitHub Pages 仓库名称
+    base: './',  
     plugins: [
         vue(),
         AutoImport({
