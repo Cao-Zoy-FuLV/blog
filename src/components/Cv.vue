@@ -3,7 +3,7 @@ import {ref} from 'vue'
 
 const personalInfo = {
   name: '简历',
-  position: 'C/C++ / JAVA / 前端开发工程师 / 实施工程师 ',
+  position: 'C/C++ / JAVA / 前端开发工程师 ',
   phone: '15659852382',
   email: '15659852382@163.com',
   status: '随时到岗'
